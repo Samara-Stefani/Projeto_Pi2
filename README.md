@@ -36,5 +36,3 @@ Bem-vindo ao **FatecER**, um projeto desenvolvido para simplificar, organizar e 
 - **Banco de Dados:** MySQL / XAMMP
 
 ---
-package.json
-.env.example
