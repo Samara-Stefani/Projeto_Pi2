@@ -23,8 +23,7 @@ Bem-vindo ao **FatecER**, um projeto desenvolvido para simplificar, organizar e 
 
 ### 📊 Apuração de Resultados
 - Contagem automática e transparente  
-- Exibição de gráficos e estatísticas  
-- Relatório final exportável
+- Relatório final exportável(ATA)
 
 ---
 
