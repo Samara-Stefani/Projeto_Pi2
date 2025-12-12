@@ -1,0 +1,583 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins';
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background: #fff;
+    color: #222;
+    animation: fadeIn;
+    animation-duration: 1s;
+    scroll-behavior: smooth;
+       overflow-x: hidden;
+}
+
+    .header {
+        background: #d9d9d9;
+        padding: 20px 30px; 
+        border-radius: 0 0 20px 20px;
+        
+        /* Configuração Flexbox para Desktop */
+        display: flex;
+        align-items: center;
+        justify-content: space-between; 
+        position: relative;
+        gap: 20px; /* Espaço entre os blocos (Logo, Nav, Icone) */
+        flex-wrap: wrap; /* Permite a quebra de linha em telas pequenas */
+        box-sizing: border-box; 
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Centraliza os links no espaço disponível */
+        flex-grow: 1; /* Permite que este bloco ocupe o espaço central */
+        gap: 15px;
+    }
+
+    .logo {
+        margin-left: 10px;
+    }
+
+
+    .nav a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #2b2b2b;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .nav a:hover {
+        text-decoration: underline dotted #D60E0E 2px;
+        text-underline-offset: 3px;
+    }
+
+    .nav a.active {
+        color: #D60E0E;
+    }
+
+    .user-icon {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0; /* Impede que o ícone diminua */
+    }
+
+    .user-icon img {
+        cursor: pointer;
+        filter: brightness(80%);
+
+    }
+
+    .user-popup {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: rgb(77, 77, 77);
+        color: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgb(20, 20, 20);
+        width: 320px;
+        z-index: 100;
+        transition: opacity 0.5s ease, transform 0.3s ease;
+        transform: translateY(-10px);
+    }
+
+
+    .user-icon:hover .user-popup {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+
+    .user-icon:hover .user-popup {
+        display: block;
+    }
+
+
+
+.sair {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.sair:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+.sair a {
+    text-decoration: none;
+    color: #b10707;
+    border: none;
+    font-weight: bold;
+}
+
+.sair a:hover {
+    text-decoration: underline dotted;
+    text-underline-offset: 4px;
+}
+
+.main-content {
+    /* Reduzido de 60% para 50% em desktop e max-width menor */
+    width: 80%; 
+    max-width: 1000px; /* Limite máximo menor */
+    margin: 2% auto;
+    padding: 0 10px;
+}
+
+
+.footer {
+    margin-top: 80px;
+    background: #d9d9d9;
+    border-radius: 30px 30px 0 0;
+    overflow: hidden;
+    font-size: 16px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    font-size: 48px;
+    font-weight: bold;
+    margin: auto;
+    transform: scale(3.5);
+}
+
+
+.footer-links {
+    justify-content: space-around;
+    display: flex;
+    gap: 60px;
+    width: 80%;
+}
+
+.footer-links h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 5px;
+}
+.footer-links a{
+    text-decoration: none;
+    color: #880000;
+    transition: 1s;
+}
+.footer-links a:hover{        
+    text-decoration: underline dotted;
+    text-underline-offset: 4px;
+    color: #222;
+}
+
+.footer-bottom {
+    text-align: center;
+     background: #d9d9d9;
+    color: rgb(172, 5, 5);
+    padding: 12px;
+    font-weight: bold;
+}
+
+.eleicoes-passadas-container {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.titulo-pagina {
+    width: 60%;
+    margin: 0;
+}
+
+.titulo-pagina {
+    font-size: 24px;
+    width: fit-content;
+    margin-bottom: 20px;
+    position: relative;
+    border-bottom: none;
+}
+.titulo-pagina::before{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 65%;
+    height: 3px;
+    background-color: #D60E0E;
+    z-index: 1;
+}
+.titulo-pagina::after{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 65%;
+    width: 35%;
+    
+    border-bottom: 3px dotted #D60E0E;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+
+    z-index: 1;
+}
+.filtro-ano {
+    text-align: right;
+    margin-bottom: 30px;
+    font-weight: 500;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.filtro-ano select {
+    font-size: 16px;
+    padding: 10px 19px;
+    padding-right: 40px; 
+    border-radius: 10px;
+    border: 1px solid #e2e2e2;
+    background-color: #e2e2e2;
+    color: #333;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    appearance: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20,50 70,100 120,50' fill='none' stroke='%23333' stroke-width='15' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+}
+
+.filtro-ano select:hover {
+    background-color: #d8d8d8;
+    border: 1px solid rgb(167, 167, 167);
+}
+
+.filtro-ano select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #fa8b8b;
+
+}
+
+.filtro-ano option{
+    background-color: rgb(233, 233, 233);
+}
+
+.eleicao-card {
+    display: flex;
+    justify-content: space-between;
+    background-color: #c4c4c4;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    gap: 20px;
+    padding-right: 220px; 
+    min-height: 220px;
+    position: relative;
+}
+
+.info-eleicao {
+    flex: 1;
+    display: flex;
+    margin-left: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.eleitos {
+    display: flex;
+    gap: 10px;
+}
+
+.container-dos-circulos {
+ position: absolute; 
+    
+    /* CORREÇÃO: Gruda o bloco na borda direita do .eleicao-card */
+    right: 0px; 
+    
+    top: 50%; 
+    transform: translateY(-50%); 
+    
+    /* Mantido o tamanho do bloco para acomodar os círculos */
+    width: 280px; 
+    height: 280px;
+
+}
+
+   .eleito,
+.eleito2 {
+    /* Círculos maiores (30px a mais que o anterior) */
+    width: 200px; 
+    height: 200px; 
+    border-radius: 50%; 
+    
+    /* Manter layout interno */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 5px; /* Reduzido para menos "grudado" */
+    
+    /* Posicionamento e alinhamento vertical mantidos */
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+
+.eleito {
+  z-index: 2; 
+   left: 70%; /* Mantido */
+    margin-left: -80px;
+    
+    background-color: #880000; /* Vermelho forte */
+    color: white;
+}
+
+.eleito2 {
+    z-index: 1; 
+    left: 70%; /* Mantido */
+    margin-left: 80px;
+    
+    background-color: #666666; /* Vermelho escuro */
+    color: rgb(0, 0, 0); 
+}
+
+.trofeu {
+    width: 80px; /* Ícone levemente maior */
+    height: 80px;
+    margin: 0 auto -20px auto;
+}
+
+.nome-eleito {
+    font-weight: bold;
+    font-size: 13px; /* Fonte levemente maior */
+    margin-bottom: 2px;
+}
+
+.status-eleito { 
+    
+    font-size: 12px;
+    line-height: 0;
+}
+.data-eleito { 
+    font-size: 13px;
+    padding: 2px 6px;
+    margin-top: 4px; /* Mais espaço acima do elemento */
+    margin-bottom: 4px; /* Mais espaço abaixo do elemento */
+    display: inline-block;
+}
+
+/* ================================================= */
+/* 1. MEDIA QUERY: TELAS MÉDIAS (até 992px - Laptops/Tablets Maiores) */
+/* ================================================= */
+@media (max-width: 992px) {
+    
+      .header {
+    padding: 20px 20px;
+    }
+
+    .main-content { 
+    width: 80%; 
+    margin: 2% auto;
+    }
+    
+   
+    .nav a {
+    
+    font-size: 17px;
+    }
+
+     .footer-logo {
+
+    font-size: 48px;
+    font-weight: bold;
+    margin: auto;
+    transform: scale(2.5);
+    }
+    .footer-top {
+        flex-direction: column; padding: 20px 10px; gap: 20px;
+    }
+    .footer-links {
+        flex-direction: column; width: 100%; gap: 20px;
+    }
+}
+
+
+
+
+@media (max-width: 768px) {
+    
+    
+    .eleicao-card {
+        flex-direction: column; 
+        padding-right: 20px; 
+        min-height: auto; 
+        
+        
+        padding-bottom: 0; 
+        padding-top: 20px; 
+    }
+
+    .info-eleicao {
+        width: 100%; 
+        margin-left: 0; 
+        margin-bottom: 140px; 
+    }
+
+   
+    .container-dos-circulos {
+        position: absolute; 
+        
+        top: 70%; 
+       
+        transform: translate(-50%, -50%); 
+        
+        left: 50%; 
+        right: auto; 
+        
+        /* Largura para celular */
+        width: 250px; 
+        height: 150px; 
+        max-width: 90%; 
+        
+        display: block; 
+    }
+    
+    /* --- CÍRCULOS INDIVIDUAIS --- */
+    .eleito,
+    .eleito2 {
+        width: 175px; 
+        height: 175px; 
+        position: absolute; 
+        
+        top: 55%; 
+        transform: translateY(-50%); /* Garante centralização vertical interna */
+        margin: 0; 
+    }
+
+    /* POSICIONAMENTO HORIZONTAL DENTRO DO CONTÊINER */
+    .eleito {
+        z-index: 2;
+        left: 20%;
+        margin-left: -70px; 
+    }
+
+    .eleito2 {
+        z-index: 1;
+        left: 25%;
+        margin-left: 70px; 
+    }
+    
+
+
+    .header {
+        /* Empilha os itens verticalmente */
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 10px;
+        gap: 15px;
+    }
+    
+    /* O bloco de navegação */
+    .nav {
+        /* Permite que os links quebrem em várias linhas */
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 10px; /* Espaço menor entre links */
+        width: 100%; /* Ocupa a largura total para melhor visualização */
+    }
+
+    /* Estilo dos Links Normais em Mobile */
+    .nav a {
+        font-size: 16px;
+        padding: 8px 10px;
+    }
+    
+    /* Estilo Específico do Botão DASHBOARD em Mobile */
+    .nav a.nav-btn-dashboard {
+        /* Ocupa a largura total do container .nav */
+        width: 100%; 
+        max-width: 300px; /* Limita a largura em telas muito pequenas */
+        text-align: center;
+        /* Dá um pouco de destaque separando-o dos outros links */
+        margin-top: 5px; 
+        order: -1; /* Força o DASHBOARD a aparecer primeiro no bloco de links, se desejado */
+    }
+    /* --- FOOTER (Mantido o seu estilo) --- */
+    .footer-logo {
+
+    font-size: 48px;
+    font-weight: bold;
+    margin: auto;
+    transform: scale(2.5);
+    }
+    .footer-top {
+        flex-direction: column; padding: 20px 10px; gap: 20px;
+    }
+    .footer-links {
+        flex-direction: column; width: 100%; gap: 20px;
+    }
+}
+/* ================================================= */
+/* 3. MEDIA QUERY: TELAS MUITO PEQUENAS (até 600px) */
+/* ================================================= */
+@media (max-width: 600px) {
+    /* ... (Estilos do Header/Footer) ... */
+
+    .eleicao-card {
+        padding-bottom: 180px; 
+    }
+    
+    .container-dos-circulos {
+        /* Reduz ainda mais a largura para telas muito pequenas */
+        width: 230px; 
+    }
+    
+    .eleito {
+        margin-left: -70px; /* Puxa o círculo um pouco mais perto */
+    }
+    .eleito2 {
+        margin-left: 70px;
+    }
+
+    /* Reduz o tamanho da fonte para caber no círculo menor */
+    .nome-eleito {
+        top: 5px;
+        font-size: 10px; 
+    }
+    .status-eleito {
+        top: 5px;
+        font-size: 8px; 
+    }
+}
