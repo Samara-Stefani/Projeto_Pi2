@@ -1,0 +1,522 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins';
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background: #ffffff;
+    color: #222;
+    animation: fadeIn;
+    animation-duration: 1s;
+    scroll-behavior: smooth;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #d9d9d9;
+    padding: 20px 30px;
+    border-radius: 0 0 20px 20px;
+    position: relative;
+}
+
+.logo {
+    margin-left: 10px;
+}
+
+
+.nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #2b2b2b;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.nav a:hover {
+    text-decoration: underline dotted #D60E0E 2px;
+    text-underline-offset: 3px;
+}
+
+.nav a.active {
+    color: #D60E0E;
+}
+
+.user-icon img {
+    cursor: pointer;
+    filter: brightness(80%);
+
+}
+
+.user-popup {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: rgb(77, 77, 77);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgb(20, 20, 20);
+    width: 320px;
+    z-index: 100;
+    transition: opacity 0.5s ease, transform 0.3s ease;
+    transform: translateY(-10px);
+}
+
+
+.user-icon:hover .user-popup {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+
+.user-icon:hover .user-popup {
+    display: block;
+}
+
+
+
+.sair {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.sair:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+.sair a {
+    text-decoration: none;
+    color: #b10707;
+    border: none;
+    font-weight: bold;
+}
+
+.sair a:hover {
+    text-decoration: underline dotted;
+    text-underline-offset: 4px;
+}
+
+
+.main-content {
+    width: 60%;
+    margin: 2% 20%;
+}
+
+.main-content h2 {
+    font-size: 24px;
+    width: fit-content;
+    margin-bottom: 20px;
+    position: relative;
+    border-bottom: none;
+}
+.main-content h2::before{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 65%;
+    height: 3px;
+    background-color: #D60E0E;
+    z-index: 1;
+}
+.main-content h2::after{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 65%;
+    width: 35%;
+    
+    border-bottom: 3px dotted #D60E0E;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+
+    z-index: 1;
+}
+
+.blocked-title h2{
+   font-size: 24px;
+    width: fit-content;
+    margin-bottom: 20px;
+    position: relative;
+    border-bottom: none;
+}
+
+.blocked-title h2::before{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 65%;
+    height: 3px;
+     background-color: gray;
+    z-index: 1;
+  
+}
+.blocked-title h2::after{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 65%;
+    width: 35%;
+    
+    border-bottom: 3px dotted gray;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+
+    z-index: 1;
+   
+}
+
+.main-vote {
+   --ponta-largura: 80px; /* Profundidade do recuo */
+    
+    /* Layout, Cor e Conteúdo */
+    display: flex;
+    flex-direction: column; 
+    justify-content:flex-start;
+    align-items: center;
+    background: #D60E0E; 
+    color: white;
+    margin-bottom: 30px;
+
+    /* Ajusta o padding para que o texto não se sobreponha ao recuo */
+    padding: 1.5em calc(var(--ponta-largura) + 1.5em) 1.5em 0em; 
+    font-family: Arial, sans-serif;
+    position:relative;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 150px; /* Altura mínima da faixa */
+    overflow: hidden; 
+
+    /* Curvatura sutil nos cantos da faixa */
+   
+    
+  
+    transition: 0.3s;
+}
+
+.main-vote::after {
+content: "";
+    position: absolute;
+    right: 0;
+    top: 0; /* Começa do topo */
+    
+    width: var(--ponta-largura); /* Largura da ponta */
+    height: 100%; /* Ocupa 100% da altura da faixa - SOLUÇÃO DO PROBLEMA */
+    
+    background: white; /* Cor de corte (fundo do site) */
+    
+    /* Cria o formato de recuo/seta (<) usando clip-path */
+    /* Pontos: superior direito, centro esquerdo, inferior direito */
+    clip-path: polygon(
+        100% 0%,        /* Canto superior direito */
+        50% 50%,         /* Centro esquerdo (o vértice do <) */
+        100% 100%       /* Canto inferior direito */
+    );
+    
+    z-index: 1; 
+    
+    /* Move o triângulo para a esquerda para alinhar a ponta */
+    transform: translateX(0); 
+    
+    /* Curvatura (opcional, pode ser ajustada ou removida) */
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+}
+
+
+
+.vote-box {
+    max-width: 600px;
+}
+
+
+.vote-box h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+
+
+.main-vote2 {
+     --ponta-largura: 80px; /* Profundidade do recuo */
+    
+    /* Layout, Cor e Conteúdo */
+    display: flex;
+    flex-direction: column; 
+    justify-content:flex-start;
+    align-items: center;
+    background: #b2b2b2; 
+    color: white;
+    margin-bottom: 30px;
+
+    /* Ajusta o padding para que o texto não se sobreponha ao recuo */
+    padding: 1.5em calc(var(--ponta-largura) + 1.5em) 1.5em 0em; 
+    font-family: Arial, sans-serif;
+    position:relative;
+    width: 105%;
+    box-sizing: border-box;
+    min-height: 150px; /* Altura mínima da faixa */
+    overflow: hidden; 
+
+    /* Curvatura sutil nos cantos da faixa */
+    border-top-right-radius: 5px; 
+    border-bottom-right-radius: 5px;
+    
+
+}
+
+/* Triângulo lateral à direita */
+.main-vote2::after {
+content: "";
+    position: absolute;
+    right: 0;
+    
+    /* 1. Centralização Vertical: Mover para o centro */
+    top: 50%; 
+    /* 2. Centralização Vertical: Ajustar pelo próprio tamanho */
+    transform: translateY(-50%);
+    
+    width: 0;
+    height: 0;
+    
+    border-top: 300px solid transparent; 
+    border-bottom: 300px solid transparent;
+    
+    /* Triângulo de corte: border-right na cor BRANCA (fundo do site) */
+    border-right: var(--ponta-largura) solid white; 
+        
+    
+    z-index: 1; /* Fica acima da faixa vermelha para fazer o corte */
+    
+    /* Curvatura sutil para a ponta do triângulo de corte */
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+
+
+.footer {
+    margin-top: 60px;
+    background: #d9d9d9;
+    border-radius: 30px 30px 0 0;
+    overflow: hidden;
+    font-size: 16px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    font-size: 48px;
+    font-weight: bold;
+    margin: auto;
+    transform: scale(3.5);
+}
+
+
+.footer-links {
+    justify-content: space-around;
+    display: flex;
+    gap: 60px;
+    width: 80%;
+}
+
+.footer-links h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 5px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #880000;
+    transition: 1s;
+}
+
+.footer-links a:hover {
+    text-decoration: underline dotted;
+    text-underline-offset: 4px;
+    color: #222;
+}
+
+.footer-bottom {
+    text-align: center;
+     background: #d9d9d9;
+    color: rgb(172, 5, 5);
+    padding: 12px;
+    font-weight: bold;
+}
+
+
+@media (max-width: 992px) {
+    
+    
+    .header {
+    padding: 20px 20px;
+    }
+
+    .main-content { 
+    width: 80%; 
+    margin: 2% auto;
+    }
+    
+   
+    .nav a {
+    
+    font-size: 17px;
+    }
+}
+
+@media (max-width: 768px) {
+    
+     .header{
+    flex-wrap: wrap; 
+    padding: 15px 10px;
+    justify-content: center; 
+
+        
+    }
+    .logo{
+     width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+
+
+    }
+
+    .user-icon{
+   
+    width: 30px;
+    left: 20px;
+    top: 500px;
+
+    }
+    .nav{
+        flex-direction: column; 
+        width: 100%;
+        gap: 5px;
+
+    }
+    .nav a{
+     width: 30px;
+     font-size: 11.5px;
+  
+    
+    }
+    .user-icon{
+        position: absolute;
+        top: 15px;
+        right: 15px;
+
+    }
+
+    .user-popup{
+    position: absolute;
+        top: 100px;
+        left: 10px;
+
+    }
+    .main-content{
+        width: 80%;
+        margin: 55px 65px;
+    }
+
+    /* --- CONTEÚDO E FAIXAS --- */
+    .main-content {
+        width: 95%; 
+        margin: 5% auto;
+    }
+    
+    .main-vote {
+        /* Reduz a ponta e a altura para telas menores */
+        --ponta-largura: 30px; 
+        min-height: 80px; /* Reduz a altura para economizar espaço */
+        padding: 1em calc(var(--ponta-largura) + 1em) 1em 0.5em; 
+    }
+    
+    /* Ajusta o triângulo de recuo com a nova altura (100px / 2 = 50px) */
+    .main-vote::after {
+     content: "";
+    position: absolute;
+    right: 0;
+    top: 0; /* Começa do topo */
+    
+    width: var(--ponta-largura); /* Largura da ponta */
+    height: 100%; /* Ocupa 100% da altura da faixa - SOLUÇÃO DO PROBLEMA */
+    
+    background: white; /* Cor de corte (fundo do site) */
+    
+    /* Cria o formato de recuo/seta (<) usando clip-path */
+    /* Pontos: superior direito, centro esquerdo, inferior direito */
+    clip-path: polygon(
+        100% 0%,        /* Canto superior direito */
+        0% 50%,         /* Centro esquerdo (o vértice do <) */
+        100% 100%       /* Canto inferior direito */
+    );
+    
+    z-index: 1; 
+    
+    /* Move o triângulo para a esquerda para alinhar a ponta */
+    transform: translateX(0); 
+    
+    /* Curvatura (opcional, pode ser ajustada ou removida) */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    }
+    
+    /* --- RODAPÉ --- */
+
+    .footer-logo {
+    font-size: 48px;
+    font-weight: bold;
+    margin: auto;
+    transform: scale(2.5);
+}
+
+    .footer-top {
+        flex-direction: column; 
+        padding: 20px 10px;
+        gap: 20px;
+    }
+
+    .footer-links {
+        flex-direction: column; 
+        width: 100%;
+        gap: 20px;
+    }
+}
